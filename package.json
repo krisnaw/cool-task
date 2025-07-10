@@ -13,7 +13,10 @@
   "devDependencies": {
     "@types/node": "^20.11.17",
     "tsx": "^4.7.1",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "@antfu/eslint-config": "^4.16.2",
+    "eslint": "^9.30.1",
+    "eslint-plugin-format": "^1.0.1"
   },
   "packageManager": "pnpm@9.1.1+sha1.09ada6cd05003e0ced25fb716f9fda4063ec2e3b"
 }
