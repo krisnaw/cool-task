@@ -15,7 +15,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 1.  Clone the repo
     ```sh
-    git clone <repository-url>
+    git clone git@github.com:krisnaw/cool-task.git
     ```
 2.  Install NPM packages
     ```sh
@@ -52,7 +52,17 @@ Lints the code and automatically fixes problems.
 
 ## Documentation
 
-The API documentation is generated using `@scalar/hono-api-reference` and is available at the `/doc` endpoint when the application is running.
+The API documentation is automatically generated from the code, ensuring that it is always up-to-date with the latest changes. This is achieved through a combination of `zod` for schema definition and `@hono/zod-openapi` for generating the OpenAPI specification.
+
+### How it Works
+
+1.  **Schema Definition with `zod`**: The data models and API endpoints are defined using `zod` schemas. This provides a single source of truth for the data structures used in the application.
+
+2.  **OpenAPI Specification Generation**: The `@hono/zod-openapi` library is used to automatically generate an OpenAPI specification from the `zod` schemas. This specification describes the API endpoints, their parameters, and the data they return.
+
+3.  **Interactive Documentation**: The generated OpenAPI specification is then served using `@scalar/hono-api-reference`, which provides an interactive API documentation interface. This allows developers to explore the API endpoints, view their details, and even try them out directly in the browser.
+
+The documentation is available at the `/doc` endpoint when the application is running.
 
 ## Folder Structure
 
