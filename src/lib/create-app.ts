@@ -1,0 +1,28 @@
+import { OpenAPIHono } from "@hono/zod-openapi";
+import { config } from "dotenv";
+import { expand } from "dotenv-expand";
+import notFound from "stoker/middlewares/not-found";
+import onError from "stoker/middlewares/on-error";
+import serveEmojiFavicon from "stoker/middlewares/serve-emoji-favicon";
+
+import { pinoLoggers } from "@/middlewares/pino-loggers";
+
+import type { AppBindings } from "./types";
+
+expand(config());
+
+export function createRouter() {
+  return new OpenAPIHono<AppBindings>({
+    strict: false,
+  });
+}
+
+export default function createApp() {
+  const app = createRouter();
+  app.use(serveEmojiFavicon("📝"));
+  app.use(pinoLoggers());
+
+  app.notFound(notFound);
+  app.onError(onError);
+  return app;
+}
