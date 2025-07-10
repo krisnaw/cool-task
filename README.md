@@ -102,3 +102,13 @@ The folder structure for this project is as follows:
             ├── tasks.index.ts
             └── tasks.routes.ts
 ```
+
+## Environment Variables
+
+To add a new environment variable, you need to follow these steps:
+
+1.  **Add the variable to `.env.example`**: This file serves as a template for the environment variables required by the project. Add the new variable with a default or example value.
+
+2.  **Update `src/env.ts`**: The `EnvSchema` in this file is a `zod` schema that defines the structure and validation rules for the environment variables. Add the new variable to this schema, specifying its type and any validation constraints.
+
+3.  **Update your `.env` file**: After adding the new variable to the schema and the example file, make sure to add it to your local `.env` file with the appropriate value for your development environment.
