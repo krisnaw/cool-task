@@ -6,7 +6,7 @@ const app = createApp();
 
 const routes = [
   index,
-];
+] as const;
 
 configureOpenAPI(app);
 
