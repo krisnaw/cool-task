@@ -21,6 +21,10 @@ These instructions will get you a copy of the project up and running on your loc
     ```sh
     pnpm install
     ```
+3.  Set up environment variables
+    ```sh
+    cp .env.example .env
+    ```
 
 ## Available Scripts
 
