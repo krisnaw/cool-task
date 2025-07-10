@@ -4,14 +4,14 @@ import index from "@/routes/index.route";
 
 const app = createApp();
 
-// const routes = [
-//   index,
-// ] as const;
+const routes = [
+  index,
+] as const;
 
 configureOpenAPI(app);
 
-// routes.forEach((route) => {
-//   app.route("/", route);
-// });
+routes.forEach((route) => {
+  app.route("/", route);
+});
 
 export default app;
