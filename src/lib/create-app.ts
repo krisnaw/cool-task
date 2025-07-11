@@ -8,7 +8,7 @@ import { defaultHook } from "stoker/openapi";
 
 import { pinoLoggers } from "@/middlewares/pino-loggers";
 
-import type { AppBindings } from "./types";
+import type { AppBindings, AppOpenAPI } from "./types";
 
 expand(config());
 
@@ -27,4 +27,10 @@ export default function createApp() {
   app.notFound(notFound);
   app.onError(onError);
   return app;
+}
+
+export function createTestApp(router: AppOpenAPI) {
+  const testApp = createApp();
+  testApp.route("/", router);
+  return testApp
 }

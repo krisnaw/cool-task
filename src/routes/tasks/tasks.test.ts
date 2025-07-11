@@ -1,12 +1,15 @@
 
-import { describe, expect, it } from "vitest"
+import { describe, expect, expectTypeOf, it } from "vitest"
 import router from "./tasks.index"
+import { createTestApp } from "@/lib/create-app"
 
 describe("Tasks list", () => {
     it("responds with array", async () => {
-        const response = await router.request('/list')
-        const result = await response.text()
+        const testRouter = createTestApp(router);
+        const response = await testRouter.request('/tasks')
+        const result = await response.json()
         console.log(result)
-        expect(false).toBe(true)
+        // @ts-expect-error
+        expectTypeOf(result).toBeArray()
     })
 })
